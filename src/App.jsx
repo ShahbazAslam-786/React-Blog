@@ -1,16 +1,16 @@
-function App() {
-  function callFun() {
-    alert("function called")
-  }
+import { useState, useContext, useEffect, useId } from "react"
 
-  function Fruit (name) {
-    alert(name)
+function App () {
+  let Fruit = "Apple"
+  const handleFruit = () => {
+    Fruit= "Banana"
+    console.log(Fruit)
   }
   return (
     <div>
-      <h1>Event Function Call</h1>
-      <button onClick={()=>Fruit("apple")}>Apple</button>
-      <button onClick={()=>Fruit("banana")}>Banana</button>
+      <h1>State In React Js</h1>
+      <h1>{ Fruit}</h1>
+      <button onClick={handleFruit}>Change Fruit Name</button>
     </div>
   )
 }
