@@ -1,16 +1,17 @@
-import { useState, useContext, useEffect, useId } from "react"
+import { useState } from "react";
+import Counter from "./Counter";
 
 function App () {
-  let Fruit = "Apple"
+  const [count, setCount] = useState("Apple")
   const handleFruit = () => {
-    Fruit= "Banana"
-    console.log(Fruit)
+       setCount("Banana")
   }
   return (
     <div>
       <h1>State In React Js</h1>
-      <h1>{ Fruit}</h1>
+      <h1>{count}</h1>
       <button onClick={handleFruit}>Change Fruit Name</button>
+      <Counter/>
     </div>
   )
 }
