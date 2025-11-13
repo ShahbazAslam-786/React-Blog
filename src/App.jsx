@@ -1,21 +1,47 @@
 import { useState } from "react";
+import College from "./college";
+import Student from "./Student";
+import User from "./user";
+// let name = "Anil Sidhu"
 
 function App() {
-  const [count, setCount] = useState(0)
+  // let userName="Anil Sidhu"
+  // let age= 29
+  // let email ="anil@test.com"
+  let userObjt = {
+    name: "Anil Sidhu",
+    age: 29,
+    email: "anil@test.com"
+  }
+  let userObjt2 = {
+    name: "Peter",
+    age: 30,
+    email: "peter@test.com"
+  }
+  let userObjt3 = {
+    name: "Bruce",
+    age: 32,
+    email: "bruce@test.com"
+  }
+  let collegeName = ["IET", "DU", "IIT", "NIT", "MIT"]
+  const [student, setStudent] = useState("Sam")
   return (
     <div>
-      <h1>Multiple Condition In React Js</h1>
-      <h1>{count}</h1>
-      <button onClick={() => setCount(count + 1)}>Counter</button>
-      {
-        count == 0 ? <h1>Condition 0</h1>
-        :count==1? <h1>Condition 1</h1> 
-        :count==2? <h1>Condition 2</h1> 
-        :count==3? <h1>Condition 3</h1> 
-        :count==4? <h1>Condition 4</h1> 
-        // :null
-        :<h1>Other Condition</h1>
-      }
+      <h1>Props in React Js</h1>
+
+      {student && <Student name={student} />}
+      <button onClick={()=>setStudent("Bhasker")}>Up date Student</button>
+
+      {/* <h1>{name}</h1> */}
+      {/* <User name ={userName} age={age} email={email}/> */}
+      {/* <College name={collegeName[0]} />
+      <College name={collegeName[1]} />
+      <College name={collegeName[2]} /> */}
+
+      <User user={userObjt} />
+      {/* <User user={userObjt2} />
+      <User user={userObjt3} /> */}
+      
     </div>
   )
 }
