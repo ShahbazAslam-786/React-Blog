@@ -1,4 +1,3 @@
-import User from "./user";
 import Wrapper from "./wrapper";
 
 function App() {
@@ -17,12 +16,6 @@ function App() {
         <h1>Hello Admin</h1>
         <h1 style={{color:"red"}}>Please Login</h1>
       </Wrapper>
-
-      {/* <User name="Anil Sidhu" />
-      <User name="Sam" />
-      < User name="Bhaskar"/>
-      < User/>
-      < User/> */}
     </div>
   )
 }
