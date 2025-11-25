@@ -1,4 +1,6 @@
-function App() {
+import User from "./user";
+
+function App () {
   const userData = [
     {
       name: "anil",
@@ -6,52 +8,35 @@ function App() {
       age: "29",
       id: 1
     },
-
     {
       name: "sam",
       email: "sam@test.com",
-      age: "30",
+      age: "34",
       id: 2
     },
     {
       name: "peter",
       email: "peter@test.com",
-      age: "31",
+      age: "20",
       id: 3
     },
     {
       name: "bruce",
       email: "bruce@test.com",
-      age: "32",
+      age: "50",
       id: 4
     }
   ]
   return (
     <div>
-      <h1>Loop In JSX with Map Function</h1>
-      <table border="1">
-        <thead>
-          <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Email</td>
-            <td>Age</td>
-          </tr>
-        </thead>
-        <tbody>
-          {
-
-          userData.map((user) => (
-            <tr key={user.id}>
-            <td>{user.id}</td>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            <td>{user.age}</td>
-          </tr>
-          ))
-          }
-        </tbody>
-      </table>
+      <h1>Reuse Component In Loop</h1>
+      {
+        userData.map((user) => (
+          <div key={user.id}>
+            <User user={user}/>
+          </div>
+        ))
+      }
     </div>
   )
 }
