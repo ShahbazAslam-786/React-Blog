@@ -1,18 +1,84 @@
-import { useState } from "react";
-import Clock from "./Clock";
+import College from "./College";
 
-function App () {
-const [color, setColor] =useState("green")
-  return(
+function App() {
+  const collegeData = [
+    {
+      name: "IET Alwar",
+      city: "Alwar",
+      website: "www.iet.com",
+      student: [
+        {
+          name: "Anil Sidhu",
+          age: "29",
+          email: "anil@test.com"
+        },
+        {
+          name: "Peter",
+          age: "20",
+          email: "peter@test.com"
+        },
+        {
+          name: "Bruce",
+          age: "25",
+          email: "bruce@test.com"
+        }
+      ]
+    },
+    {
+      name: "IIT Dehli",
+      city: "Dehli",
+      website: "www.iit.com",
+      student: [
+        {
+          name: "Anil Sidhu",
+          age: "29",
+          email: "anil@test.com"
+        },
+        {
+          name: "Peter",
+          age: "20",
+          email: "peter@test.com"
+        },
+        {
+          name: "Bruce",
+          age: "25",
+          email: "bruce@test.com"
+        }
+      ]
+    },
+    {
+      name: "KCIET Hisar",
+      city: "Hisar",
+      website: "www.keciet.com",
+      student: [
+        {
+          name: "Anil Sidhu",
+          age: "29",
+          email: "anil@test.com"
+        },
+        {
+          name: "Peter",
+          age: "20",
+          email: "peter@test.com"
+        },
+        {
+          name: "Bruce",
+          age: "25",
+          email: "bruce@test.com"
+        }
+      ]
+    }
+  ]
+  return (
     <div>
-      <h1>Digital Clock in React JS</h1>
-      <select onChange={(event)=> setColor(event.target.value)}>
-        <option value="green">Green</option>
-        <option value="yellow">Yellow</option>
-        <option value="blue">Blue</option>
-        <option value="red">Red</option>
-      </select>
-      <Clock color={color}/>
+      {/* <h1>Nested Lopping With Component</h1> */}
+      {
+        collegeData.map((college, index) => (
+          <div key={index}>
+           <College college={college}/>
+          </div>
+        ))
+      }
     </div>
   )
 }
