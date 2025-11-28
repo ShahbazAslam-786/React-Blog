@@ -1,84 +1,25 @@
-import College from "./College";
+import { useEffect, useState } from "react";
 
-function App() {
-  const collegeData = [
-    {
-      name: "IET Alwar",
-      city: "Alwar",
-      website: "www.iet.com",
-      student: [
-        {
-          name: "Anil Sidhu",
-          age: "29",
-          email: "anil@test.com"
-        },
-        {
-          name: "Peter",
-          age: "20",
-          email: "peter@test.com"
-        },
-        {
-          name: "Bruce",
-          age: "25",
-          email: "bruce@test.com"
-        }
-      ]
-    },
-    {
-      name: "IIT Dehli",
-      city: "Dehli",
-      website: "www.iit.com",
-      student: [
-        {
-          name: "Anil Sidhu",
-          age: "29",
-          email: "anil@test.com"
-        },
-        {
-          name: "Peter",
-          age: "20",
-          email: "peter@test.com"
-        },
-        {
-          name: "Bruce",
-          age: "25",
-          email: "bruce@test.com"
-        }
-      ]
-    },
-    {
-      name: "KCIET Hisar",
-      city: "Hisar",
-      website: "www.keciet.com",
-      student: [
-        {
-          name: "Anil Sidhu",
-          age: "29",
-          email: "anil@test.com"
-        },
-        {
-          name: "Peter",
-          age: "20",
-          email: "peter@test.com"
-        },
-        {
-          name: "Bruce",
-          age: "25",
-          email: "bruce@test.com"
-        }
-      ]
-    }
-  ]
-  return (
+function App () {
+
+  const [counter, setCounter] = useState(0)
+  const [data, setData] = useState(0)
+
+  useEffect (() => {
+  callOnce()
+  },[counter, data])
+
+  function callOnce () {
+    console.log("Callonce Function  Called")
+
+  }
+
+  
+  return(
     <div>
-      {/* <h1>Nested Lopping With Component</h1> */}
-      {
-        collegeData.map((college, index) => (
-          <div key={index}>
-           <College college={college}/>
-          </div>
-        ))
-      }
+      <h1>useEffect Hooks</h1>
+      <button onClick={() => setCounter(counter + 1)}>Counter: {counter}</button>
+      <button onClick={() => setData(data + 1)}>Data: {data}</button>
     </div>
   )
 }
