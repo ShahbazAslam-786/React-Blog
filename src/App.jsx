@@ -1,25 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Counter from "./Counter";
 
-function App () {
-
-  const [counter, setCounter] = useState(0)
+function App() {
+  const [count, setCount] = useState(0)
   const [data, setData] = useState(0)
-
-  useEffect (() => {
-  callOnce()
-  },[counter, data])
-
-  function callOnce () {
-    console.log("Callonce Function  Called")
-
-  }
-
-  
-  return(
+  return (
     <div>
-      <h1>useEffect Hooks</h1>
-      <button onClick={() => setCounter(counter + 1)}>Counter: {counter}</button>
-      <button onClick={() => setData(data + 1)}>Data: {data}</button>
+      <h1>Handle Props Side Effect with useEffect in Component</h1>
+      <Counter count={count} data={data}/>
+      <button onClick={() => setCount(count + 1)}>Counter</button>
+      <button onClick={() => setData(data + 1)}>Data</button>
     </div>
   )
 }
