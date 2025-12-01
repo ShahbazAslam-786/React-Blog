@@ -2,26 +2,19 @@ import { useEffect } from "react"
 
 const Counter = ({ count, data }) => {
 
-    const handleCounter = () => {
-        console.log("handleCounter called")
-    }
+     useEffect (() => {
+       console.log("Mounting Phase")
+     },[])
 
-    const handleData = () => {
-        console.log("handleData Called")
-    }
+      useEffect (() => {
+       console.log("Update Phase only")
+     },[count])
 
-
-    useEffect(() => {
-        handleCounter()
-
-    }, [])
-
-    useEffect(() => {
-        handleData()
-
-    }, [count, data])
-
-
+     useEffect(() =>{
+        return() => {
+            console.log("Unmounting Phase")
+        }
+     },[])
 
     return (
         <div>
