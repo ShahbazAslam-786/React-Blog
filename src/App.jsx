@@ -1,73 +1,24 @@
-import "./Css/Style.css"
+import UserProfile from "./userProfile";
+// import "./Css/style.css";
 
-function App () {
+function App() {
   return (
     <>
-    <h1 className="heading">External Style</h1>
-
-    <div className="container">
-    <div className="user-card">
-      <div>
-        <img className="img-style" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnx5T5raT9fE-rG6AhvejJ04wpP9m8ze8TFw&s" alt="" />
+      <h1 className="heading">Style With Css Module In React jS</h1>
+      <div style={{display:"flex", flexWrap: "wrap"}}>
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
       </div>
-      <div className="text-wrap">
-        <h4>Anil sidhu</h4>
-        <p>Softwear Developer</p>
-      </div>
-    </div>
-
-    <div className="user-card">
-      <div>
-        <img className="img-style" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnx5T5raT9fE-rG6AhvejJ04wpP9m8ze8TFw&s" alt="" />
-      </div>
-      <div className="text-wrap">
-        <h4>Anil sidhu</h4>
-        <p>Softwear Developer</p>
-      </div>
-    </div>
-     
-     <div className="user-card">
-      <div>
-        <img className="img-style" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnx5T5raT9fE-rG6AhvejJ04wpP9m8ze8TFw&s" alt="" />
-      </div>
-      <div className="text-wrap">
-        <h4>Anil sidhu</h4>
-        <p>Softwear Developer</p>
-      </div>
-    </div>
-
-    <div className="user-card">
-      <div>
-        <img className="img-style" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnx5T5raT9fE-rG6AhvejJ04wpP9m8ze8TFw&s" alt="" />
-      </div>
-      <div className="text-wrap">
-        <h4>Anil sidhu</h4>
-        <p>Softwear Developer</p>
-      </div>
-    </div>
-
-    <div className="user-card">
-      <div>
-        <img className="img-style" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnx5T5raT9fE-rG6AhvejJ04wpP9m8ze8TFw&s" alt="" />
-      </div>
-      <div className="text-wrap">
-        <h4>Anil sidhu</h4>
-        <p>Softwear Developer</p>
-      </div>
-    </div>
-
-    <div className="user-card">
-      <div>
-        <img className="img-style" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnx5T5raT9fE-rG6AhvejJ04wpP9m8ze8TFw&s" alt="" />
-      </div>
-      <div className="text-wrap">
-        <h4>Anil sidhu</h4>
-        <p>Softwear Developer</p>
-      </div>
-    </div>
-
-    </div>
-
     </>
   )
 }
