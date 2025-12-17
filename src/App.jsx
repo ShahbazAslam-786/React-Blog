@@ -1,30 +1,20 @@
-import { useFormStatus } from "react-dom"
+import { useState } from "react";
 
 function App () {
-    const handleForm = async() => {
-        await new Promise (res=> setTimeout(res,2000))
-        console.log("Submit")
-    }
 
-    function CustomerForm () {
-        const {pending} = useFormStatus();
-        console.log(pending)
-        return (
-            <div>
-                <input type="text" placeholder="enter name" />
-                <br /><br />
-                <input type="text" placeholder="enter password" />
-                <br /><br />
-                <button disabled={pending}>{pending? "Submiting...": "Submit"}</button>
-            </div>
-        )
+    const [pending, setPending] = useState(false)
+    const handleButton = async() =>{
+        // console.log("Hello umar Sajid")
+        setPending(true)
+       await new Promise(res => setTimeout(res, 2000))
+        //
+
+        setPending(false)
     }
     return (
         <>
-        <h1>useFormStatus hook in react js</h1>
-        <form action={handleForm}>
-          <CustomerForm/>
-        </form>
+        <h1>useTransition hook in React js 19</h1>
+        <button disabled={pending} onClick={handleButton}>Clikc</button>
         </>
     )
 }
