@@ -1,23 +1,21 @@
-import { useTransition } from "react";
-
+let count=0
 function App () {
-    const [pending, startTransition] = useTransition()
-
-    const handleButton = () => {
-        startTransition(async () => {
-            await new Promise(res=> setTimeout(res,2000))
-        })
-    }
+    console.log('in app----', count)
     return (
         <>
-        <h1>useTransition hook in react js 19</h1>
-        {
-            pending?
-            <img style={{width:"200px"}} src="src/assets/loading.webp" alt="loading" />:null
-        }
-        <button disabled={pending} onClick={handleButton}>Click</button>
+        <h1>Keeping Component pure</h1>
+        <Counter count={2}/>
+        <Counter count={2}/>
+        <Counter count={2}/>
+        <Counter count={2}/>
         </>
     )
+}
+
+function Counter () {
+    count=count +1;
+    console.log('in counter count----------', count)
+    return(<><h1>Counter {count}</h1></>)
 }
 
 export default App;
