@@ -1,44 +1,62 @@
 import { useState } from "react";
 
 function App() {
+    // const [name, setName] = useState("anil")
+    const [data, setData] = useState([
+        "anil", "sam", "peter", "tony"
+    ])
 
-    const [data, setData] = useState({
-        name: "anil",
-        adress: {
-            city: "gurgaon",
-            country: "India"
-        }
-    })
+    const [dataDetails, setDataDetails] = useState([
 
-    const handleName = (val) => {
-        //    console.log(val)
-        data.name = val
-        setData({ ...data })
+        { name: "anil", age: "29" },
+        { name: "sam", age: "25" },
+        { name: "peter", age: "33" },
+    ])
+
+    const handleUser = (name) => {
+        //  console.log(name)
+        // setData([name])
+
+        data[data.length - 1] = name
+        // console.log(data)
+        setData([...data])
     }
 
-    const handleCity = (city) => {
-        //   console.log(city)
-        data.adress.city = city
-        setData({ ...data, adress: { ...data.adress, city } })
+    const handleAge = (age) => {
+        //  console.log(name)
+        // setData([name])
+
+        dataDetails[dataDetails.length - 1].age = age
+        // console.log(data)
+        setDataDetails([...dataDetails])
     }
 
-    const handleCountry = (country) => {
-        // console.log(country)
-        data.adress.country = country
-        setData({ ...data, adress: { ...data.adress, country } })
-    }
     return (
         <>
-            <h1>Update objects in state</h1>
-            <input type="text" placeholder="Update name" onChange={(event) => handleName(event.target.value)} />
-            <br /><br />
-            <input type="text" placeholder="Update city" onChange={(event) => handleCity(event.target.value)} />
-            <br /><br />
-            <input type="text" placeholder="Update country" onChange={(event) => handleCountry(event.target.value)} />
+            <h1>Update Array in State</h1>
+            {/* <h2>{name}</h2> */}
+            {/* <button onClick={() => setName("Anil Sidhu")}>Update name</button> */}
 
-            <h2>Name : {data.name}</h2>
-            <h2>City : {data.adress.city}</h2>
-            <h2>Country : {data.adress.country}</h2>
+            <input type="text" placeholder="enter last user name" onChange={(e) => handleUser(e.target.value)} />
+            <br /><br />
+            {
+                data.map((item, index) => (
+                    <div key={index}>
+                        <h3>
+                            {item}
+                        </h3>
+                    </div>
+                ))
+            }
+
+            <hr />
+
+            <input type="text" placeholder="enter last user age" onChange={(e) => handleAge(e.target.value)} />
+            {
+                dataDetails.map((item,index) => (
+                    <h4 key={index}>{item.name}, {item.age}</h4>
+                ))
+            }
         </>
     )
 }
