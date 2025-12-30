@@ -1,62 +1,43 @@
-import { useState } from "react";
+import { useActionState } from "react";
 
 function App() {
-    // const [name, setName] = useState("anil")
-    const [data, setData] = useState([
-        "anil", "sam", "peter", "tony"
-    ])
 
-    const [dataDetails, setDataDetails] = useState([
+    const handleSubmit = async (previousData, formData) => {
+        let name = formData.get("name")
+        let password = formData.get("password")
+        await new Promise(res => setTimeout(res, 2000))
+        // console.log("hadleSubmit Called", name, password)
 
-        { name: "anil", age: "29" },
-        { name: "sam", age: "25" },
-        { name: "peter", age: "33" },
-    ])
-
-    const handleUser = (name) => {
-        //  console.log(name)
-        // setData([name])
-
-        data[data.length - 1] = name
-        // console.log(data)
-        setData([...data])
+        if (name && password) {
+            return { message: "Data Submited", name, password }
+        } else {
+            return { error: "Failde to Submit, Enter proper data", name, password }
+        }
     }
 
-    const handleAge = (age) => {
-        //  console.log(name)
-        // setData([name])
-
-        dataDetails[dataDetails.length - 1].age = age
-        // console.log(data)
-        setDataDetails([...dataDetails])
-    }
-
+    const [data, action, pending] = useActionState(handleSubmit, undefined)
+    console.log(data)
     return (
         <>
-            <h1>Update Array in State</h1>
-            {/* <h2>{name}</h2> */}
-            {/* <button onClick={() => setName("Anil Sidhu")}>Update name</button> */}
+            <h1>useActionState hook in React js</h1>
+            <form action={action}>
+                <input type="text" defaultValue={data?.name} placeholder="enter name" name="name" />
+                <br /><br />
+                <input type="text" defaultValue={data?.password} placeholder="enter password" name="password" />
+                <br /><br />
+                <button disabled={pending}>Submit data</button>
+            </form>
+                <br />
 
-            <input type="text" placeholder="enter last user name" onChange={(e) => handleUser(e.target.value)} />
-            <br /><br />
             {
-                data.map((item, index) => (
-                    <div key={index}>
-                        <h3>
-                            {item}
-                        </h3>
-                    </div>
-                ))
+                data?.error && <span style={{ color: "red" }}>{data?.error}</span>
+            }
+            {
+                data?.message && <span style={{ color: "blue" }}>{data?.message}</span>
             }
 
-            <hr />
-
-            <input type="text" placeholder="enter last user age" onChange={(e) => handleAge(e.target.value)} />
-            {
-                dataDetails.map((item,index) => (
-                    <h4 key={index}>{item.name}, {item.age}</h4>
-                ))
-            }
+            <h3>Name :{data?.name}</h3>
+            <h3>Password :{data?.password}</h3>
         </>
     )
 }
