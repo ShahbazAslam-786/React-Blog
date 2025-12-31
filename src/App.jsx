@@ -1,45 +1,49 @@
-import { useActionState } from "react";
+import { useId } from "react";
 
-function App() {
+ export default function App() {
 
-    const handleSubmit = async (previousData, formData) => {
-        let name = formData.get("name")
-        let password = formData.get("password")
-        await new Promise(res => setTimeout(res, 2000))
-        // console.log("hadleSubmit Called", name, password)
-
-        if (name && password) {
-            return { message: "Data Submited", name, password }
-        } else {
-            return { error: "Failde to Submit, Enter proper data", name, password }
-        }
-    }
-
-    const [data, action, pending] = useActionState(handleSubmit, undefined)
-    console.log(data)
     return (
         <>
-            <h1>useActionState hook in React js</h1>
-            <form action={action}>
-                <input type="text" defaultValue={data?.name} placeholder="enter name" name="name" />
-                <br /><br />
-                <input type="text" defaultValue={data?.password} placeholder="enter password" name="password" />
-                <br /><br />
-                <button disabled={pending}>Submit data</button>
-            </form>
-                <br />
+            {/* <h1>useId Hook</h1> */}
+            {/* <h1>{name}</h1>
+            <h1>{password}</h1>
+            <h1>{terms}</h1>
+            <h1>{skills}</h1> */}
 
-            {
-                data?.error && <span style={{ color: "red" }}>{data?.error}</span>
-            }
-            {
-                data?.message && <span style={{ color: "blue" }}>{data?.message}</span>
-            }
-
-            <h3>Name :{data?.name}</h3>
-            <h3>Password :{data?.password}</h3>
+            {/* <form action="">
+                <label htmlFor="name">enter user name</label>
+                <input id="name" type="text" placeholder="enter name" />
+            </form> */}
+            <UserForm/>
+            <hr />
+            <UserForm/>
         </>
     )
 }
 
-export default App;
+function UserForm () {
+    //  let name = useId()
+    // let password = useId()
+    // let terms = useId()
+    // let skills = useId()
+    let user =useId()
+    return (
+        <div>
+         <form action="">
+                <label htmlFor={user+"name"}>Enter User Name</label>
+                <input id={user+"name"} type="text" placeholder="enter name" />
+                <br /><br />
+                <label htmlFor={user+"password"}>Enter User password</label>
+                <input id={user+"password"} type="text" placeholder="enter password" />
+                <br /><br />
+                <label htmlFor={user+"skills"}>Enter User skills</label>
+                <input id={user+"skills"} type="text" placeholder="enter skills" />
+                 <br /><br />
+                <label htmlFor={user+"terms"}>Terms and Condition</label>
+                <input id={user+"terms"} type="checkbox" placeholder="enter terms" />
+            </form>
+            </div>
+    )
+}
+
+ 
